@@ -1,0 +1,3 @@
+@utility container-fluid {
+  @apply max-w-6xl mx-auto w-full px-6;
+}
