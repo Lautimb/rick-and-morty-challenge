@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CardRoot matches snapshot with full composition 1`] = `
+<article
+  class="relative overflow-hidden rounded-xl border-2 border-purple-500 bg-gray-100 dark:bg-gray-900"
+>
+  <div
+    class="px-4 pt-4"
+  >
+    Title
+  </div>
+  <div
+    class="px-4 py-2 flex flex-col gap-1"
+  >
+    <div
+      class="text-sm text-white"
+    >
+      Alive · Human
+    </div>
+  </div>
+  <div
+    class="px-4 pb-4 pt-2 border-t border-gray-100"
+  >
+    S01E01
+  </div>
+</article>
+`;
