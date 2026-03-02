@@ -6,7 +6,7 @@ export const pageButtonVariants = cva(
     variants: {
       active: {
         true: "bg-purple-600 text-white",
-        false: "text-gray-300 hover:bg-gray-700 hover:text-white",
+        false: "text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white",
       },
       disabled: {
         true: "cursor-not-allowed opacity-40",

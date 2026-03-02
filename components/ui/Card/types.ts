@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { type ReactNode, ComponentPropsWithoutRef } from "react";
 import { ImageProps } from "next/image";
 import { CharacterStatus } from "@/libs/types";
 
@@ -14,6 +14,6 @@ export type CardMediaProps = Omit<ImageProps, "fill" | "width" | "height"> & {
 };
 
 export type CardBadgeProps = ComponentPropsWithoutRef<"span"> & {
-  status: CharacterStatus;
-  species: string;
+  status?: CharacterStatus;
+  icon?: ReactNode;
 };

@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import type { CardDescripcionProps } from "./types";
 
-const cardDescripcionVariants = cva("text-sm text-gray-500");
+const cardDescripcionVariants = cva("text-sm text-white");
 
 export function CardDescripcion({ children, className, ...rest }: CardDescripcionProps) {
   return (

@@ -1,27 +1,20 @@
 import { PageItem } from "./types";
 
-export function getPageRange(current: number, total: number): PageItem[] {
-  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+export function getPageRange(current: number, total: number, siblingCount = 1): PageItem[] {
+  const visibleMax = 5 + 2 * siblingCount;
+  if (total <= visibleMax) return Array.from({ length: total }, (_, i) => i + 1);
 
-  const pages = new Set<number>([1, total]);
-  for (let i = Math.max(1, current - 1); i <= Math.min(total, current + 1); i++) {
-    pages.add(i);
+  const leftEllipsis = current > siblingCount + 3;
+  const rightEllipsis = current < total - siblingCount - 2;
+
+  if (!leftEllipsis) {
+    const left = Array.from({ length: siblingCount * 2 + 3 }, (_, i) => i + 1);
+    return [...left, "...", total];
   }
-
-  const sorted = Array.from(pages).sort((a, b) => a - b);
-  const result: PageItem[] = [];
-
-  for (let i = 0; i < sorted.length; i++) {
-    if (i > 0) {
-      const gap = sorted[i] - sorted[i - 1];
-      if (gap === 2) {
-        result.push(sorted[i] - 1);
-      } else if (gap > 2) {
-        result.push("...");
-      }
-    }
-    result.push(sorted[i]);
+  if (!rightEllipsis) {
+    const right = Array.from({ length: siblingCount * 2 + 3 }, (_, i) => total - (siblingCount * 2 + 2) + i);
+    return [1, "...", ...right];
   }
-
-  return result;
+  const siblings = Array.from({ length: siblingCount * 2 + 1 }, (_, i) => current - siblingCount + i);
+  return [1, "...", ...siblings, "...", total];
 }
