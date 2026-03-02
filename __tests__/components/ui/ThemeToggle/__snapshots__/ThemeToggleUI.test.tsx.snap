@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ThemeToggleUI matches snapshot when dropdown is open with active theme 'dark' 1`] = `
+<div
+  class="relative"
+>
+  <button
+    aria-label="Cambiar tema"
+    class="cursor-pointer flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/10 transition-colors"
+  >
+    <svg
+      aria-hidden="true"
+      class="lucide lucide-moon"
+      fill="none"
+      height="16"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+      />
+    </svg>
+  </button>
+  <div
+    class="absolute right-0 top-10 z-50 w-36 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-white/10 dark:bg-gray-900"
+  >
+    <button
+      class="cursor-pointer flex w-full items-center gap-2.5 px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 transition-colors"
+    >
+      <span
+        class="shrink-0 text-gray-500 dark:text-gray-400"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-sun"
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+          />
+          <path
+            d="M12 2v2"
+          />
+          <path
+            d="M12 20v2"
+          />
+          <path
+            d="m4.93 4.93 1.41 1.41"
+          />
+          <path
+            d="m17.66 17.66 1.41 1.41"
+          />
+          <path
+            d="M2 12h2"
+          />
+          <path
+            d="M20 12h2"
+          />
+          <path
+            d="m6.34 17.66-1.41 1.41"
+          />
+          <path
+            d="m19.07 4.93-1.41 1.41"
+          />
+        </svg>
+      </span>
+      Claro
+    </button>
+    <button
+      class="cursor-pointer flex w-full items-center gap-2.5 px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 transition-colors"
+    >
+      <span
+        class="shrink-0 text-gray-500 dark:text-gray-400"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-moon"
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+          />
+        </svg>
+      </span>
+      Oscuro
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-check ml-auto text-purple-500 dark:text-purple-400 shrink-0"
+        fill="none"
+        height="12"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 6 9 17l-5-5"
+        />
+      </svg>
+    </button>
+    <button
+      class="cursor-pointer flex w-full items-center gap-2.5 px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 transition-colors"
+    >
+      <span
+        class="shrink-0 text-gray-500 dark:text-gray-400"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-monitor"
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            height="14"
+            rx="2"
+            width="20"
+            x="2"
+            y="3"
+          />
+          <line
+            x1="8"
+            x2="16"
+            y1="21"
+            y2="21"
+          />
+          <line
+            x1="12"
+            x2="12"
+            y1="17"
+            y2="21"
+          />
+        </svg>
+      </span>
+      Sistema
+    </button>
+  </div>
+</div>
+`;

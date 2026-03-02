@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CardBadge matches snapshot for Alive status 1`] = `
+<span
+  class="inline-flex items-center gap-1.5 rounded-full bg-black/50 px-2 py-0.5 text-xs font-medium backdrop-blur-sm"
+>
+  <span
+    class="h-2 w-2 shrink-0 rounded-full bg-green-400"
+  />
+  Alive
+</span>
+`;
+
+exports[`CardBadge matches snapshot for Dead status 1`] = `
+<span
+  class="inline-flex items-center gap-1.5 rounded-full bg-black/50 px-2 py-0.5 text-xs font-medium backdrop-blur-sm"
+>
+  <span
+    class="h-2 w-2 shrink-0 rounded-full bg-red-500"
+  />
+  Dead
+</span>
+`;

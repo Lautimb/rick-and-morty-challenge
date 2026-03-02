@@ -1,4 +1,4 @@
-
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { PaginationProps } from "./types";
 import { pageButtonVariants } from "./styles";
 import { getPageRange } from "./utils";
@@ -12,8 +12,9 @@ export function Pagination({
   onPrev,
   onNext,
   onGoTo,
+  siblingCount = 1,
 }: PaginationProps) {
-  const pages = getPageRange(currentPage, totalPages);
+  const pages = getPageRange(currentPage, totalPages, siblingCount);
 
   return (
     <nav aria-label="Paginación" className="flex items-center justify-center gap-1 mt-4">
@@ -23,12 +24,12 @@ export function Pagination({
         aria-label="Página anterior"
         className={pageButtonVariants({ disabled: !hasPrev || isLoading })}
       >
-        ‹
+        <ChevronLeft size={16} />
       </button>
 
       {pages.map((page, i) =>
         page === "..." ? (
-          <span key={`ellipsis-${i}`} className="flex h-8 w-8 items-center justify-center text-sm text-gray-500 select-none">
+          <span key={`ellipsis-${i}`} className="flex h-8 w-8 items-center justify-center text-sm text-gray-400 dark:text-gray-500 select-none">
             …
           </span>
         ) : (
@@ -54,7 +55,7 @@ export function Pagination({
         aria-label="Página siguiente"
         className={pageButtonVariants({ disabled: !hasNext || isLoading })}
       >
-        ›
+        <ChevronRight size={16} />
       </button>
     </nav>
   );

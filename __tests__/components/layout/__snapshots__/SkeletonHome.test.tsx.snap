@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`HomeSkeleton matches snapshot 1`] = `
+<div
+  class="flex flex-col gap-16"
+>
+  <div
+    class="flex flex-col items-center gap-8 text-center"
+  >
+    <div
+      class="flex flex-col items-center gap-3"
+    >
+      <div
+        class="h-10 w-72 rounded-lg bg-gray-200 dark:bg-gray-700 animate-pulse md:h-12"
+      />
+      <div
+        class="h-5 w-80 rounded bg-gray-200 dark:bg-gray-700 animate-pulse"
+      />
+    </div>
+    <div
+      class="flex flex-col items-center gap-2 sm:flex-row"
+    >
+      <div
+        class="flex flex-col items-center gap-2 sm:flex-row"
+      >
+        <div
+          class="h-11 w-56 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="h-4 w-4 rounded-full bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+      </div>
+      <div
+        class="flex flex-col items-center gap-2 sm:flex-row"
+      >
+        <div
+          class="h-11 w-56 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="h-4 w-4 rounded-full bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+      </div>
+      <div
+        class="flex flex-col items-center gap-2 sm:flex-row"
+      >
+        <div
+          class="h-11 w-56 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="flex flex-col gap-10 md:flex-row"
+  >
+    <section
+      class="flex w-full flex-col gap-4"
+    >
+      <div
+        class="h-8 w-36 rounded bg-gray-200 dark:bg-gray-700 animate-pulse"
+      />
+      <div
+        class="grid grid-cols-2 gap-4"
+      >
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+      </div>
+      <div
+        class="h-10 w-full rounded-lg bg-gray-200 dark:bg-gray-700 animate-pulse"
+      />
+    </section>
+    <section
+      class="flex w-full flex-col gap-4"
+    >
+      <div
+        class="h-8 w-36 rounded bg-gray-200 dark:bg-gray-700 animate-pulse"
+      />
+      <div
+        class="grid grid-cols-2 gap-4"
+      >
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+        <div
+          class="aspect-square rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+        />
+      </div>
+      <div
+        class="h-10 w-full rounded-lg bg-gray-200 dark:bg-gray-700 animate-pulse"
+      />
+    </section>
+  </div>
+  <div
+    class="flex flex-col gap-4"
+  >
+    <div
+      class="h-8 w-48 rounded bg-gray-200 dark:bg-gray-700 animate-pulse"
+    />
+    <div
+      class="h-32 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+    />
+  </div>
+</div>
+`;

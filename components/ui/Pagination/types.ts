@@ -7,6 +7,7 @@ export type PaginationProps = {
   onPrev: () => void;
   onNext: () => void;
   onGoTo: (page: number) => void;
+  siblingCount?: number;
 };
 
 export type PageItem = number | "...";

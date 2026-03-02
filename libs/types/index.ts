@@ -35,3 +35,19 @@ export type EpisodeSets = {
   shared: Episode[];
   char2Only: Episode[];
 };
+
+export type RawCharacter = {
+  id: string;
+  name: string;
+  image: string;
+  status: CharacterStatus;
+  species: string;
+  episode: { id: string }[];
+};
+
+export type GraphQLResponse = {
+  characters: {
+    info: CharactersPage["info"];
+    results: RawCharacter[];
+  };
+};

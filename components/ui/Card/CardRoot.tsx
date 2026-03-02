@@ -9,7 +9,7 @@ import { CardMedia } from "./CardMedia";
 import { CardOverlay } from "./CardOverlay";
 
 const cardRootVariants = cva(
-  "relative overflow-hidden rounded-xl border-2 border-purple-500 bg-gray-900"
+  "relative overflow-hidden rounded-xl border-2 border-purple-500 bg-gray-100 dark:bg-gray-900"
 );
 
 export function CardRoot({ children, className, ...rest }: CardRootProps) {

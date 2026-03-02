@@ -3,9 +3,8 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import { fetchCharactersPage } from "@/libs/api/characters";
 import type { CharactersPage, Character } from "@/libs/types";
+import { UI_PAGE_SIZE, API_PAGE_SIZE } from "@/libs/constants/pagination";
 
-const UI_PAGE_SIZE = 6;
-const API_PAGE_SIZE = 20;
 
 function neededApiPages(uiPage: number, totalApiPages: number) {
   const startIdx = (uiPage - 1) * UI_PAGE_SIZE;
@@ -45,6 +44,8 @@ export function usePagination(initialData: CharactersPage) {
 
   const currentPageRef = useRef(1);
   const isLoadingRef = useRef(false);
+  const lastNavTime = useRef(0);
+  const NAV_COOLDOWN_MS = 350;
 
   const [uiPage, setUiPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -60,13 +61,17 @@ export function usePagination(initialData: CharactersPage) {
 
   const goTo = useCallback(
     async (targetPage: number) => {
+      const now = Date.now();
       if (
         isLoadingRef.current ||
         targetPage === currentPageRef.current ||
         targetPage < 1 ||
-        targetPage > totalUiPages
+        targetPage > totalUiPages ||
+        now - lastNavTime.current < NAV_COOLDOWN_MS
       )
         return;
+
+      lastNavTime.current = now;
 
       const { first, last } = neededApiPages(targetPage, totalApiPages);
 
