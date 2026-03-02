@@ -2,13 +2,14 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
 }
 
-export default function Error({ error, reset }: ErrorProps) {
+export default function Error({ error }: ErrorProps) {
   useEffect(() => {
     console.error('[Error Boundary]', error);
   }, [error]);
@@ -51,12 +52,12 @@ export default function Error({ error, reset }: ErrorProps) {
         </p>
       )}
 
-      <button
-        onClick={reset}
+      <Link
+        href="/"
         className="rounded-xl bg-purple-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-purple-700"
       >
         Reintentar
-      </button>
+      </Link>
 
     </div>
   );

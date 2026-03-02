@@ -42,6 +42,7 @@ export function CharacterCard({ character, panelId, eager = false }: CharacterCa
       <Card.Media
         src={character.image}
         alt={character.name}
+        sizes="(max-width: 767px) 50vw, 25vw"
         loading={eager ? "eager" : "lazy"}
         fetchPriority={eager ? "high" : "auto"}
       />

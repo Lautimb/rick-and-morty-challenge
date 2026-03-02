@@ -1,13 +1,17 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { EpisodeComparison } from "@/components/features/EpisodeComparison/EpisodeComparison";
 import { useComparisonStore } from "@/store/comparisonStore";
+
+jest.mock("../../../../libs/api/episodes", () => ({
+  fetchEpisodes: jest.fn().mockResolvedValue([]),
+}));
 
 // Mock sub-components to isolate EpisodeComparison logic
 jest.mock(
   "../../../../components/features/EpisodeComparison/EpisodeColumn",
   () => ({
-    EpisodeColumn: ({ panelId }: { panelId: string }) => (
-      <div data-testid={`episode-column-${panelId}`} />
+    EpisodeColumn: ({ resetKey }: { resetKey: number }) => (
+      <div data-testid={`episode-column-${resetKey}`} />
     ),
   })
 );
@@ -66,12 +70,14 @@ describe("EpisodeComparison", () => {
     expect(screen.getByAltText("Rick Sanchez")).toBeInTheDocument();
   });
 
-  it("renders EpisodeColumn and SharedEpisodes when both characters are selected", () => {
+  it("renders EpisodeColumn and SharedEpisodes when both characters are selected", async () => {
     useComparisonStore.setState({ char1: RICK, char2: MORTY });
     render(<EpisodeComparison />);
-    expect(screen.getByTestId("episode-column-char1")).toBeInTheDocument();
-    expect(screen.getByTestId("episode-column-char2")).toBeInTheDocument();
-    expect(screen.getByTestId("shared-episodes")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByTestId(`episode-column-${RICK.id}`)).toBeInTheDocument();
+      expect(screen.getByTestId(`episode-column-${MORTY.id}`)).toBeInTheDocument();
+      expect(screen.getByTestId("shared-episodes")).toBeInTheDocument();
+    });
   });
 
   it("does NOT show the empty state when both characters are selected", () => {
