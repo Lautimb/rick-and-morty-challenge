@@ -1,16 +1,23 @@
-import { PanelCharacters } from "@/components/features/PanelCharacters";
-import { getCharactersPage } from "@/libs/api/characters";
+import { Suspense } from "react";
+import { AppIntro } from "@/components/features/AppIntro";
+import { PanelsSection } from "@/components/features/PanelsSection";
+import { EpisodeComparison } from "@/components/features/EpisodeComparison";
+import { ScrollFAB } from "@/components/features/ScrollFAB";
+import { PanelsSectionSkeleton } from "@/components/ui/Skeletons/PanelsSection";
 
-export default async function Home() {
-  const [panel1Data, panel2Data] = await Promise.all([
-    getCharactersPage(1),
-    getCharactersPage(1),
-  ]);
-
+export default function Home() {
   return (
-    <div className="flex flex-col gap-10 md:flex-row">
-      <PanelCharacters initialData={panel1Data} title="Character #1" />
-      <PanelCharacters initialData={panel2Data} title="Character #2" />
+    <div className="flex flex-col gap-16">
+      <AppIntro />
+      <Suspense
+        fallback={
+          <PanelsSectionSkeleton />
+        }
+      >
+        <PanelsSection />
+      </Suspense>
+      <EpisodeComparison />
+      <ScrollFAB />
     </div>
   );
 }
