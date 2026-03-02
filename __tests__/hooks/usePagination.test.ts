@@ -23,7 +23,6 @@ const INITIAL_DATA: CharactersPage = {
 };
 
 
-// Helper to get which API page numbers were fetched
 const fetchedPages = () =>
   (fetchCharactersPage as jest.Mock).mock.calls.map((args) => args[0]);
 
@@ -71,7 +70,6 @@ describe("usePagination", () => {
   });
 
   it("navigates to page 2 from cache without fetching", async () => {
-    // UI page 2: chars 7-12 (indices 6-11), all within API page 1 (cached)
     const { result } = renderHook(() => usePagination(INITIAL_DATA));
 
     await act(async () => {
@@ -91,7 +89,6 @@ describe("usePagination", () => {
   });
 
   it("fetches the missing API page when navigating to an uncached UI page", async () => {
-    // UI page 5: startIdx=24 → needs only API page 2 (not cached)
     (fetchCharactersPage as jest.Mock).mockResolvedValueOnce({
       info: INITIAL_DATA.info,
       results: API_PAGE_2,
@@ -101,7 +98,7 @@ describe("usePagination", () => {
     await act(async () => { await result.current.goTo(5); });
 
     expect(fetchCharactersPage).toHaveBeenCalledTimes(1);
-    expect(fetchedPages()).toEqual([2]); // only API page 2 was fetched
+    expect(fetchedPages()).toEqual([2]); 
     expect(result.current.currentPage).toBe(5);
     expect(result.current.characters.map((c) => c.id)).toEqual([25, 26, 27, 28, 29, 30]);
   });
@@ -117,7 +114,6 @@ describe("usePagination", () => {
   });
 
   it("fetches ONLY the missing API page when a UI page spans two API pages", async () => {
-    // UI page 4: startIdx=18, endIdx=23 → needs API pages 1 (cached) AND 2 (not cached)
     (fetchCharactersPage as jest.Mock).mockResolvedValueOnce({
       info: INITIAL_DATA.info,
       results: API_PAGE_2,
@@ -126,12 +122,10 @@ describe("usePagination", () => {
     const { result } = renderHook(() => usePagination(INITIAL_DATA));
     await act(async () => { await result.current.goTo(4); });
 
-    // API page 1 was already cached — only page 2 should be fetched
     expect(fetchCharactersPage).toHaveBeenCalledTimes(1);
     expect(fetchedPages()).toEqual([2]);
     expect(fetchedPages()).not.toContain(1);
 
-    // [ids 19-20 from API page 1] + [ids 21-24 from API page 2]
     expect(result.current.characters.map((c) => c.id)).toEqual([19, 20, 21, 22, 23, 24]);
   });
 
@@ -187,7 +181,7 @@ describe("usePagination", () => {
   it("goPrev goes back to the previous page", async () => {
     const { result } = renderHook(() => usePagination(INITIAL_DATA));
     await act(async () => { await result.current.goTo(2); });
-    tick(); // advance past NAV_COOLDOWN_MS before the next navigation
+    tick(); 
     await act(async () => { await result.current.goPrev(); });
     expect(result.current.currentPage).toBe(1);
     expect(result.current.hasPrev).toBe(false);

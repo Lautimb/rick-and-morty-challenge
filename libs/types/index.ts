@@ -19,8 +19,8 @@ export type Episode = {
 export type PaginationInfo = {
   count: number;
   pages: number;
-  next: number | null;
-  prev: number | null;
+  next: string | number | null;
+  prev: string | number | null;
 };
 
 export type CharactersPage = {
@@ -36,18 +36,3 @@ export type EpisodeSets = {
   char2Only: Episode[];
 };
 
-export type RawCharacter = {
-  id: string;
-  name: string;
-  image: string;
-  status: CharacterStatus;
-  species: string;
-  episode: { id: string }[];
-};
-
-export type GraphQLResponse = {
-  characters: {
-    info: CharactersPage["info"];
-    results: RawCharacter[];
-  };
-};

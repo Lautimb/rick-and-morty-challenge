@@ -11,7 +11,6 @@ export function CardMedia({ src, alt, className, ...rest }: CardMediaProps) {
         src={src}
         alt={alt}
         fill
-        unoptimized
         className="object-cover"
         {...rest}
       />
