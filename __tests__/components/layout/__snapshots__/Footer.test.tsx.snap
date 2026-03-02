@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Footer matches snapshot 1`] = `
+<footer
+  class="w-full bg-white border-t border-gray-200 dark:bg-gray-900 dark:border-white/10 py-5"
+>
+  <div
+    class="container-fluid mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-400"
+  >
+    <p>
+      © 
+      2026
+       Rick & Morty Challenge
+    </p>
+    <div
+      class="flex items-center gap-6"
+    >
+      <a
+        class="flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-white transition-colors"
+        href="https://rickandmortyapi.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-external-link"
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 3h6v6"
+          />
+          <path
+            d="M10 14 21 3"
+          />
+          <path
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          />
+        </svg>
+        Rick & Morty API
+      </a>
+      <a
+        class="flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-white transition-colors"
+        href="https://nextjs.org/docs"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-external-link"
+          fill="none"
+          height="14"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 3h6v6"
+          />
+          <path
+            d="M10 14 21 3"
+          />
+          <path
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          />
+        </svg>
+        Desarrolado con Next.js Docs
+      </a>
+    </div>
+  </div>
+</footer>
+`;
