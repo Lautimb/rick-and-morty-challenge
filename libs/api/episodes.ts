@@ -1,7 +1,5 @@
 import type { Episode } from "@/libs/types";
 
-const BASE = "https://rickandmortyapi.com/api";
-
 function extractId(urlOrId: string): string {
   return urlOrId.split("/").pop()!;
 }
@@ -10,7 +8,7 @@ export async function fetchEpisodes(urlsOrIds: string[], signal?: AbortSignal): 
   if (urlsOrIds.length === 0) return [];
 
   const ids = urlsOrIds.map(extractId);
-  const res = await fetch(`${BASE}/episode/${ids.join(",")}`, { signal });
+  const res = await fetch(`/api/episodes?ids=${ids.join(",")}`, { signal });
 
   if (!res.ok) throw new Error(`Failed to fetch episodes: ${res.status}`);
 

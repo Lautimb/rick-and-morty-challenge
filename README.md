@@ -69,11 +69,13 @@ La aplicación consume la [Rick and Morty API](https://rickandmortyapi.com) a tr
 
 ### Separación SSR / Client
 
+El browser nunca llama directamente a la API externa. Las peticiones client-side pasan por route handlers internos de Next.js, que actúan como proxy hacia `rickandmortyapi.com`.
+
 | Función | Contexto | Estrategia |
 |---|---|---|
-| `getCharactersPage(page)` | Servidor (SSR) | `fetch` con `next: { revalidate: 3600 }` |
-| `fetchCharactersPage(page)` | Cliente | `fetch` plano + caché de promesas a nivel módulo |
-| `fetchEpisodes(ids, signal?)` | Cliente | Batch por IDs + `AbortSignal` opcional |
+| `getCharactersPage(page)` | Servidor (SSR) | `fetch` directo a API externa con `next: { revalidate: 86400 }` |
+| `fetchCharactersPage(page)` | Cliente | `fetch` a `/api/characters` (proxy interno, revalidate: 3600) |
+| `fetchEpisodes(ids, signal?)` | Cliente | `fetch` a `/api/episodes` (proxy interno, revalidate: 86400) + `AbortSignal` |
 
 ### Paginación en dos niveles
 
@@ -108,6 +110,9 @@ El componente `Card` sigue el patrón compound con propiedades estáticas:
 
 ```
 ├── app/
+│   ├── api/
+│   │   ├── characters/route.ts   # Proxy → rickandmortyapi.com/character
+│   │   └── episodes/route.ts     # Proxy → rickandmortyapi.com/episode
 │   ├── page.tsx                  # Home (Server Component)
 │   ├── layout.tsx                # Root layout
 │   ├── error.tsx                 # Error boundary global
@@ -165,6 +170,18 @@ git clone https://github.com/Lautimb/rick-and-morty-challenge.git
 cd rick-and-morty-challenge
 pnpm install
 ```
+
+### Variables de entorno
+
+Crear un archivo `.env.local` en la raíz del proyecto tomando como base `.env.example`:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable | Descripción |
+|---|---|
+| `RICK_MORTY_API_BASE_URL` | URL base de la API externa (ver `.env.example`) |
 
 ### Comandos disponibles
 

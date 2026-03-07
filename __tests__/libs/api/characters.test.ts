@@ -63,6 +63,12 @@ describe("fetchCharactersPage", () => {
   beforeEach(() => { global.fetch = jest.fn(); });
   afterEach(() => { jest.restoreAllMocks(); });
 
+  it("calls the internal API route", async () => {
+    mockFetchSuccess();
+    await fetchCharactersPage(1);
+    expect(global.fetch).toHaveBeenCalledWith("/api/characters?page=1");
+  });
+
   it("returns a CharactersPage", async () => {
     mockFetchSuccess();
     const page = await fetchCharactersPage(1);

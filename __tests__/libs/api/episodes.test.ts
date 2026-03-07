@@ -17,14 +17,14 @@ describe("fetchEpisodes", () => {
     expect(global.fetch).not.toHaveBeenCalled();
   });
 
-  it("calls the correct REST endpoint with joined ids", async () => {
+  it("calls the internal API route with joined ids", async () => {
     (global.fetch as jest.Mock).mockResolvedValueOnce({
       ok: true,
       json: async () => [EPISODE],
     });
     await fetchEpisodes(["1", "2", "3"]);
     expect(global.fetch).toHaveBeenCalledWith(
-      "https://rickandmortyapi.com/api/episode/1,2,3",
+      "/api/episodes?ids=1,2,3",
       expect.any(Object)
     );
   });
